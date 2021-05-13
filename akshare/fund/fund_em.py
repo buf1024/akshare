@@ -629,12 +629,14 @@ def fund_em_etf_fund_daily() -> pd.DataFrame:
     return temp_df
 
 
-def fund_em_etf_fund_info(fund: str = "511280") -> pd.DataFrame:
+def fund_em_etf_fund_info(fund: str = "511280", start: str = None, end: str = None) -> pd.DataFrame:
     """
     东方财富网站-天天基金网-基金数据-场内交易基金-历史净值明细
     http://fundf10.eastmoney.com/jjjz_511280.html
     :param fund: 场内交易基金代码, 可以通过 fund_em_etf_fund_daily 来获取
     :type fund: str
+    :param start %Y-%m-%d格式
+    :param end %Y-%m-%d格式
     :return: 东方财富网站-天天基金网-基金数据-场内交易基金-历史净值明细
     :rtype: pandas.DataFrame
     """
@@ -643,13 +645,15 @@ def fund_em_etf_fund_info(fund: str = "511280") -> pd.DataFrame:
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36",
         "Referer": f"http://fundf10.eastmoney.com/jjjz_{fund}.html",
     }
+    start = "" if start is None or len(start) == 0 else start
+    end = "" if end is None or len(end) == 0 else end
     params = {
         "callback": "jQuery183023608994033331676_1588250653363",
         "fundCode": fund,
         "pageIndex": "1",
         "pageSize": "10000",
-        "startDate": "",
-        "endDate": "",
+        "startDate": start,
+        "endDate": end,
         "_": round(time.time() * 1000),
     }
     r = requests.get(url, params=params, headers=headers)
