@@ -660,6 +660,9 @@ def fund_em_etf_fund_info(fund: str = "511280", start: str = None, end: str = No
     text_data = r.text
     data_json = demjson.decode(text_data[text_data.find("{") : -1])
     temp_df = pd.DataFrame(data_json["Data"]["LSJZList"])
+    if temp_df.empty:
+        return temp_df
+
     temp_df.columns = [
         "净值日期",
         "单位净值",
