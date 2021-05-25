@@ -659,6 +659,8 @@ def fund_em_etf_fund_info(fund: str = "511280", start: str = None, end: str = No
     r = requests.get(url, params=params, headers=headers)
     text_data = r.text
     data_json = demjson.decode(text_data[text_data.find("{") : -1])
+    if data_json["Data"] is None:
+        return None
     temp_df = pd.DataFrame(data_json["Data"]["LSJZList"])
     if temp_df.empty:
         return temp_df
