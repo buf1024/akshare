@@ -4,7 +4,7 @@
 
 ![](https://jfds-1252952517.cos.ap-chengdu.myqcloud.com/akshare/readme/index/bond_stock_index.png)
 
-上图是利用 [AkShare](https://github.com/jindaxiang/akshare) 的 **get_bond_bank** 函数获取的中国银行间
+上图是利用 [AKShare](https://github.com/jindaxiang/akshare) 的 **get_bond_bank** 函数获取的中国银行间
 交易商协会发布的债券数据来绘制的, 可以在上面明确看出近几个月发债规模急速上升.
 
 ### 债券基础名词
@@ -719,24 +719,26 @@ print(bond_zh_cov_df)
 
 | 名称          | 类型 | 默认显示 | 描述           |
 | ------------ | ----- | -------- | ---------------- |
-| 最新价          | float   | Y        | -     |
-| 涨跌幅          | float      | Y        | -     |
-| 转债代码          | str      | Y        | -     |
-| 转债名称           | str      | Y        | -     |
-| 上市日期         | str      | Y        | -     |
-| 纯债价值        | float      | Y        | -     |
-| 涨跌幅        | float      | Y        | -     |
-| 正股代码        | str      | Y        | -     |
-| 正股名称        | str      | Y        | -     |
-| 转股价        | float      | Y        | -     |
-| 转股价值        | float      | Y        | -     |
-| 转股溢价率        | float      | Y        | 注意单位: %     |
-| 纯债溢价率        | float      | Y        | 注意单位: %     |
-| 回售触发价        | float      | Y        | -     |
-| 强赎触发价        | float      | Y        | -     |
-| 到期赎回价        | float      | Y        | -     |
-| 开始转股日        | str      | Y        | -     |
-| 申购日期        | str      | Y        | -     |
+| 序号          | int32   | Y        | -     |
+| 转债代码          | object      | Y        | -     |
+| 转债名称           | object      | Y        | -     |
+| 转债最新价          | object   | Y        | -     |
+| 转债涨跌幅          | object      | Y        | 注意单位: %     |
+| 正股代码        | object      | Y        | -     |
+| 正股名称        | object      | Y        | -     |
+| 正股最新价        | object      | Y        | -     |
+| 正股涨跌幅        | object      | Y        | 注意单位: %     |
+| 转股价        | object      | Y        | -     |
+| 转股价值        | object      | Y        | -     |
+| 转股溢价率        | object      | Y        | 注意单位: %     |
+| 纯债溢价率        | object      | Y        | 注意单位: %     |
+| 回售触发价        | object      | Y        | -     |
+| 强赎触发价        | object      | Y        | -     |
+| 到期赎回价        | object      | Y        | -     |
+| 纯债价值        | float64      | Y        | -     |
+| 开始转股日        | object      | Y        | -     |
+| 上市日期         | object      | Y        | -     |
+| 申购日期        | object      | Y        | -     |
 
 接口示例
 
@@ -749,18 +751,18 @@ print(bond_cov_comparison_df)
 数据示例
 
 ```
-        最新价   涨跌幅    涨跌幅    转债代码  转债名称  ...  回售触发价  强赎触发价  到期赎回价     开始转股日      申购日期
-0         -     -  10.02  128108  蓝帆转债  ...  12.45  23.13    108  20201203  20200528
-1         -     -   3.11  113582  火炬转债  ...  17.73  32.93    110  20201202  20200527
-2         -     -   2.19  113035  福莱转债  ...   9.49  17.63    115  20201203  20200527
-3    107.79  0.99    1.1  113581  龙蟠转债  ...   6.73  12.49    120  20201029  20200423
-4     109.7  1.28   2.26  113580  康隆转债  ...  17.12  31.79    115  20201029  20200423
-..      ...   ...    ...     ...   ...  ...    ...    ...    ...       ...       ...
-254   107.8 -0.02   0.42  113009  广汽转债  ...  10.09  18.73    106  20160722  20160122
-255  114.34  3.31   1.55  110034  九州转债  ...  12.82  23.82    108  20160721  20160115
-256  108.85  0.51   0.49  110033  国贸转债  ...   5.19   9.65    108  20160705  20160105
-257  110.29  0.01    1.2  110031  航信转债  ...  15.25  28.33    107  20151214  20150612
-258  107.19  0.18   0.92  113008  电气转债  ...   3.59   6.67  106.6  20150803  20150202
+      序号    转债代码   转债名称 转债最新价 转债涨跌幅  ...  到期赎回价      纯债价值     开始转股日 上市日期      申购日期
+0      1  123114   三角转债     -     -  ...  115.0   81.5083  20211130    -  20210525
+1      2  111000   起帆转债     -     -  ...  115.0   81.1652  20211129    -  20210524
+2      3  127034   绿茵转债     -     -  ...  113.0   80.5937  20211111    -  20210430
+3      4  113624   正川转债     -     -  ...  115.0   93.3750  20211108    -  20210428
+4      5  113048   晶科转债     -     -  ...  112.0   89.8588  20211029    -  20210423
+..   ...     ...    ...   ...   ...  ...    ...       ...       ...  ...       ...
+370  371  110806  中闽定02     -     -  ...      -  100.6112  20210722    -         -
+371  372  110805  中闽定01     -     -  ...      -   96.2539         -    -         -
+372  373  110804  国泰定02     -     -  ...      -   91.1144  20210301    -         -
+373  374  110802  继峰定02     -     -  ...      -   95.7982  20201224    -         -
+374  375  110801  继峰定01     -     -  ...      -   95.7854         -    -         -
 ```
 
 ### 可转债转股价变动
@@ -814,9 +816,9 @@ print(bond_convert_jsl_df)
 
 接口: bond_investing_global
 
-目标地址: https://cn.investing.com/rates-bonds/
+目标地址: https://cn.investing.com/rates-bonds
 
-描述: 获取全球政府债券行情与收益率, 该接口需要通过代理访问, 由于涉及国家和债券多(**近1000**个债券)具体参见[国家-债券目录](https://cn.investing.com/rates-bonds/world-government-bonds?maturity_from=10&maturity_to=310) 
+描述: 获取全球政府债券行情与收益率; 该接口需要通过代理访问, 由于涉及国家和债券多(**近1000**个债券)具体参见[国家-债券目录](https://cn.investing.com/rates-bonds/world-government-bonds?maturity_from=10&maturity_to=310)
 
 具体的调用方式可以参照: 
 
@@ -824,7 +826,7 @@ print(bond_convert_jsl_df)
 2. 复制网页上国家名称(推荐复制), 如 **中国**;
 3. 复制所显示的具体债券名称(推荐复制, 如果英文中间有空格, 也需要保留空格), 如 **中国1年期国债**; 也可以调用 **ak.bond_investing_global_country_name_url(country="美国")** 获取需要国家的具体指数名称
 4. 在安装 [AKShare](https://github.com/jindaxiang/akshare) 后输入, 如 **ak.bond_investing_global(country="中国", index_name="中国1年期国债", period="每周", start_date="2000-01-01", end_date="2020-06-06")**;
-5. 稍后就可以获得所需数据, 由于服务器在国外, 如访问失败, 请稍后重试.
+5. 稍后就可以获得所需数据; 由于服务器在国外, 如访问失败, 请稍后重试.
 
 限量: 单次返回某一个国家的具体某一个指数, 建议用 for 循环获取多个国家的多个指数, 注意不要大量获取, 以免给对方服务器造成压力!
 
@@ -835,8 +837,8 @@ print(bond_convert_jsl_df)
 | country | str  | Y    |   country="中国"|
 | index_name | str  | Y    |  index_name="中国1年期国债"; 可以通过 ak.bond_investing_global_country_name_url(country="美国") 获取|
 | period | str  | Y    |  period="每月"; choice of {"每日", "每周", "每月"}|
-| start_date | str  | Y    |  start_date='2000-01-01'|
-| end_date | str  | Y    |  end_date='2019-10-17'|
+| start_date | str  | Y    |  start_date='20000101'|
+| end_date | str  | Y    |  end_date='20191017'|
 
 输出参数
 
@@ -853,7 +855,7 @@ print(bond_convert_jsl_df)
 
 ```python
 import akshare as ak
-bond_investing_global_df = ak.bond_investing_global(country="中国", index_name="中国1年期国债", period="每周", start_date="2000-01-01", end_date="2020-06-06")
+bond_investing_global_df = ak.bond_investing_global(country="中国", index_name="中国1年期国债", period="每周", start_date="20000101", end_date="20200606")
 print(bond_investing_global_df)
 ```
 

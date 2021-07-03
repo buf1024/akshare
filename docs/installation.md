@@ -2,8 +2,10 @@
 
 ## 重要提示
 
-1. 首先请确认安装 [Python](https://www.python.org/) 3.7(64 位) 及以上版本, 这里推荐 [Python](https://www.python.org/) 3.8.5(64 位) 版本;
-2. [AKShare](https://github.com/jindaxiang/akshare) 推荐安装最新版本的 [Anaconda](https://www.anaconda.com/), 可以解决大部分安装问题.
+1. 目前 [AKShare](https://github.com/jindaxiang/akshare) 仅支持 64 位版本的操作系统安装和使用;
+2. 目前 [AKShare](https://github.com/jindaxiang/akshare) 仅支持 [Python](https://www.python.org/) 3.7(64 位) 及以上版本, 这里推荐 [Python](https://www.python.org/) 3.8.5(64 位) 版本;
+3. [AKShare](https://github.com/jindaxiang/akshare) 推荐安装最新版本的 [Anaconda (64 位)](https://www.anaconda.com/), 可以解决大部分环境配置问题;
+4. 对于熟悉容器技术的小伙伴, 可以安装 Docker 使用, 指导教程如下: [AKShare Docker 部署](https://www.akshare.xyz/zh_CN/latest/akdocker/akdocker.html).
 
 ## 安装 [AKShare](https://github.com/jindaxiang/akshare)
 
@@ -12,6 +14,8 @@
 ```
 pip install akshare  --upgrade
 ```
+
+注意：程序运行时，文件名、文件夹名不能是：akshare
 
 ### 国内安装-Python
 
@@ -27,7 +31,7 @@ pip install akshare -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mir
 
 ## 安装 [Node.js](https://nodejs.org/dist/)
 
-P.S. 体验 [AkShare](https://github.com/jindaxiang/akshare) 完整功能, 请安装 [Node.js](https://nodejs.org/dist/)
+P.S. 体验 [AKShare](https://github.com/jindaxiang/akshare) 完整功能, 请安装 [Node.js](https://nodejs.org/dist/)
 
 ### 快速安装
 
@@ -167,8 +171,9 @@ use_python("/usr/local/bin/python")
 ```
 library(reticulate)  # 导入 reticulate 包
 use_python("/king/local/bin/python")  # 其中的 king 为本地电脑用户名
+# use_condaenv(condaenv="ak_test", required = TRUE)  # 也可以使用 conda 创建的虚拟环境，其中的 ak_test 为虚拟环境名称
 ak <- import("akshare")  # 类似于 import akshare as ak
-stock_df <- ak$stock_em_yysj(date="2020-03-31")  # 类似于 ak.stock_em_yysj(date="2020-03-31")
+stock_df <- ak$stock_em_yysj(date="20200331")  # 类似于 ak.stock_em_yysj(date="20200331")
 print(stock_df)  # 查看数据
 ```
 
